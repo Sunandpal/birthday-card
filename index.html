@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Gorgeous!</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-pink: #ffafbd;
+            --secondary-pink: #ffc3a0;
+            --text-color: #4a4a4a;
+            --gold: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Initial Card State */
+        #card-container {
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            z-index: 10;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid white;
+        }
+
+        .envelope::before {
+            content: 'Tap to Open ❤️';
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--primary-pink);
+        }
+
+        /* Main Content (Hidden initially) */
+        #main-content {
+            display: none;
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeInScale 1s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #d81b60;
+            margin-bottom: 20px;
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .photo-gallery img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-gallery img:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        .message-section {
+            line-height: 1.8;
+            text-align: left;
+            font-size: 1.05rem;
+        }
+
+        .fact-box {
+            background: #fff0f3;
+            padding: 15px;
+            border-left: 5px solid #d81b60;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .icon-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .icon-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .icon-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-note {
+            font-style: italic;
+            margin-top: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: #d81b60;
+        }
+
+        .heart-icon {
+            color: #e91e63;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Clickable Envelope -->
+    <div id="card-container" onclick="revealBirthday()">
+        <div class="envelope"></div>
+    </div>
+
+    <!-- Revealed Birthday Content -->
+    <div id="main-content">
+        <h1>Happy Birthday, Gorgeous! 🎂</h1>
+        
+        <div class="photo-gallery">
+            <!-- REPLACE THESE WITH YOUR ACTUAL PHOTO FILENAMES -->
+            <img src="photo1.jpg" alt="Birthday Girl 1">
+            <img src="photo2.jpg" alt="Birthday Girl 2">
+            <img src="photo3.jpg" alt="Birthday Girl 3">
+        </div>
+
+        <div class="message-section">
+            <p>I did some digging to see what cosmic forces aligned to create you on September 26, and honestly, everything is starting to make a lot of sense:</p>
+
+            <h3>The Icons You Share a Birthday With:</h3>
+            <ul class="icon-list">
+                <li><strong>Serena Williams:</strong> Absolute powerhouse, unstoppable, and never takes a loss lying down (sound familiar when we debate?).</li>
+                <li><strong>Olivia Newton-John:</strong> Pure classic charm with a dangerous edge—basically “you’re the one that I want” personified.</li>
+                <li><strong>T.S. Eliot:</strong> A Nobel laureate poet, which explains why you’re so good at leaving me completely speechless.</li>
+            </ul>
+
+            <div class="fact-box">
+                <strong>This Day in History (1960):</strong><br>
+                The very first televised US presidential debate took place between JFK and Nixon. Millions of viewers realized instantly that charismatic looks and screen presence beat everything else. Basically, history proved over 60 years ago that a captivating smile wins every single argument... which explains my daily disadvantage on our video calls.
+            </div>
+
+            <p><strong>Fun Fact of the Day:</strong><br>
+            September 26 is officially celebrated as <strong>National Love Note Day</strong>. The universe practically mandated that someone handsome and hopelessly distracted by you across time zones send you a reminder of how stunning, clever, and utterly captivating you are.</p>
+
+            <p class="footer-note">
+                Miles away right now, but you’re still the only person occupying all my headspace today. Have the most incredible day, birthday girl—I can't wait until I get to claim my hugs in person. <span class="heart-icon">❤️</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function revealBirthday() {
+            // 1. Hide the envelope
+            document.getElementById('card-container').style.display = 'none';
+            
+            // 2. Show the main content
+            const mainContent = document.getElementById('main-content');
+            mainContent.style.display = 'block';
+
+            // 3. Trigger Glitter/Confetti Blast
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              var particleCount = 50 * (timeLeft / duration);
+              // since particles fall down, start a bit higher than random
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            // One big central burst
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ffafbd', '#ffc3a0', '#d4af37', '#ffffff']
+            });
+        }
+    </script>
+</body>
+</html>
